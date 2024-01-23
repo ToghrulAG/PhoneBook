@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./src/index.js" defer></script>
+</head>
+
+<body>
+    <div id="container">
+        <form id="addContact">
+            <label for="addName">Name</label>
+            <input type="text" id="addName" placeholder="Name">
+            <label for="addSurname">Surname</label>
+            <input type="text" id="addSurname" placeholder="Surname">
+            <label for="addNumber">Number</label>
+            <input type="number" id="addNumber" placeholder="Phone Number">
+            <label for="addEmail">Email</label>
+            <input type="text" id="addEmail" placeholder="Email">
+            <button type="submit" id="createContact">Create Contact</button>
+        </form>
+        <div id="tableContainer">
+            <table id="tableBody">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr id="bodyRow">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="deleteModalContainer">
+        <div class="deleteModal">
+            
+        </div>
+    </div>
+</body>
+
+</html>
