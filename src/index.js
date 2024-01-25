@@ -22,7 +22,8 @@ function fillData(data) {
     <td>${element.tel}</td>
     <td>${element.email}</td>
     <td class="operations">
-     <button class="edit" onclick="editContact('${element.name}', '${element.surname}')">Edit</button>
+    <button class="edit" onclick="editContact('${element.name}', '${element.surname}', '${element.tel}', '${element.email}')">Edit</button>
+
      <button class="delete" onclick="deleteContact('${element.id}')">Delete</button>
     </td>
     `;
@@ -61,17 +62,17 @@ async function deleteContact(userId) {
     document.querySelector('.deleteModalContainer').classList.add('open');
 
     document.querySelector('.approveDelete').addEventListener('click', async () => {
-        
+
 
         const response = await fetch(`http://localhost:3001/users/${userId}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'  
+                'Content-Type': 'application/json'
             }
         })
-        if(response.ok) {
+        if (response.ok) {
             console.log('Okay')
-        }else {
+        } else {
             console.log('Not okay')
         }
     })
@@ -80,12 +81,33 @@ async function deleteContact(userId) {
     })
 }
 
-function editContact(name, surName) {
+function editContact(name, surName, number, email) {
     document.querySelector('.editModalContainer').classList.add('open');
-
-    document.querySelector('.editName').value = name;
-    document.querySelector('.editSurname').value = surName;
-    
+    document.querySelector('#editName').value = name;
+    document.querySelector('#editSurname').value = surName;
+    document.querySelector('#editNumber').value = number;
+    document.querySelector('#editEmail').value = email
+    document.querySelector('#update').addEventListener('click', () => {
+        //Operation
+        const updatedName = document.querySelector('#editName').value;
+        const updatedSurname = document.querySelector('#editSurname').value;
+        const updatedNumber = document.querySelector('#editNumber').value;
+        const updatedEmail = document.querySelector('#editEmail').value;
+        // PUT
+        const updateContactData = {
+            name: updatedName,
+            surname: updatedSurname,
+            number: updatedNumber,
+            email: updatedEmail
+        }
+        fetch(`http://localhost:3001/contacts/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateContactData)
+        })
+    })
 }
 
 const submitButton = document.querySelector('#createContact');
