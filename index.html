@@ -23,13 +23,14 @@
             <button type="submit" id="createContact">Create Contact</button>
         </form>
         <div id="tableContainer">
-            <table id="tableBody">
+            <table id="table">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Surname</th>
                         <th>Number</th>
                         <th>Email</th>
+                        <th>Operations</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -39,12 +40,37 @@
             </table>
         </div>
     </div>
-
     <div class="deleteModalContainer">
         <div class="deleteModal">
-            
+            <h2>Are u sure about this?</h2>
+            <div class="deleteChoise">
+                <button class="approveDelete">Yes</button>
+                <button class="cancelDelete">No</button>
+            </div>
         </div>
     </div>
+    <div class="editModalContainer">
+        <div class="editModal">
+            <form action="">
+                <label for="editName">Name</label>
+                <input type="text" id="editName" placeholder="Name">
+                <label for="editSurname">Surname</label>
+                <input type="text" id="editSurname" placeholder="Surname">
+                <label for="editNumber">Number</label>
+                <input type="number" id="editNumber" placeholder="Phone Number">
+                <label for="editEmail">Email</label>
+                <input type="text" id="editEmail" placeholder="Email">
+                <div class="updateChoise">
+                    <button type="submit" id="update">Update</button>
+                <button id="cancelUpdate">Cancel</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
 </body>
 
 </html>

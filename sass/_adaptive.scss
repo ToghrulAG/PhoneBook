@@ -1,0 +1,44 @@
+@media (max-width: 960px) {
+    #container {
+        flex-direction: column;
+
+        #tableContainer {
+            padding-top: 50px;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    #tableContainer {
+        #table {
+            thead {
+                tr {
+                    th {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        font-size: 12px;
+                    }
+                    .operation {
+                        .edit {
+                            width: 20px;
+
+                        }
+                        .delete {
+                            width: 20px;
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}

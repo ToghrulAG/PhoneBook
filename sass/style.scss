@@ -1,4 +1,6 @@
-@import url(./_modal.scss);
+@import './modal';
+@import './adaptive';
+
 * {
     margin: 0;
     padding: 0;
@@ -11,35 +13,87 @@
 
 #container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    background-color: antiquewhite;
+    height: 100%;
+    padding-top: 20px;
     #addContact {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 10px;
         input {
+            border: 1px solid rgb(10, 149, 208);
+            padding: 10px;
             height: 40px;
             width: 250px;
+            outline: none;
+            border-radius: 20px;
+
+        }
+        input:focus {
+            background-color: rgba(10, 149, 208, 0.2);
+        }
+        label {
+            font-family: 'Trebuchet MS';
+            transition: 400ms;
+            border-bottom: 1px solid rgb(10, 149, 208);
         }
         button {
+            margin-top: 10px;
             cursor: pointer;
-            padding: 10px;
-
+            padding: 15px;
+            
+            background-color: rgb(10, 149, 208);
+            border-radius: 20px;
+            border: none;
+            box-shadow: -3px 5px 11px #aeaeae;
+            color: white;
+            font-family: 'Trebuchet MS';
+            transition: 300ms;
+        }
+        button:hover{
+            padding: 20px;
         }
     }
     #tableContainer {
-        height: 100%;
-        width: 60%;
-        background-color: aqua;
+        height: 600px;
+        
         table {
             text-align: center;
             width: 100%;
             th{
-                border: 1px solid black;
+                background-color: rgb(10, 149, 208);
+                font-size: 15px;
+                padding: 10px;
+                font-family: 'Trebuchet MS';
+                text-transform: uppercase;
+            }
+            tr{
+                font-family: 'Trebuchet MS';
+                background-color: rgb(205, 205, 205);
+                td {
+                    padding: 10px;
+                }
+            }
+            .operations {
+                .edit {
+                    padding: 7px 30px 7px 30px;
+                    background-color: rgba(9, 169, 27, 0.644);
+                    font-family: 'Trebuchet MS';
+                    border: 1px solid white;
+                    color: white;
+                    cursor: pointer;
+                }
+                .delete {
+                    padding: 7px 30px 7px 30px;
+                    background-color: rgba(255, 0, 0, 0.664);
+                    font-family: 'Trebuchet MS';
+                    border: 1px solid white;
+                    color: white;
+                    cursor: pointer;
+                }
             }
         }
 
