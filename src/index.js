@@ -22,7 +22,7 @@ function fillData(data) {
     <td>${element.tel}</td>
     <td>${element.email}</td>
     <td class="operations">
-    <button class="edit" onclick="editContact('${element.name}', '${element.surname}', '${element.tel}', '${element.email}')">Edit</button>
+    <button class="edit" onclick="editContact('${element.name}', '${element.surname}', '${element.tel}', '${element.email}', '${element.id}')">Edit</button>
 
      <button class="delete" onclick="deleteContact('${element.id}')">Delete</button>
     </td>
@@ -81,13 +81,13 @@ async function deleteContact(userId) {
     })
 }
 
-function editContact(name, surName, number, email) {
+ async function editContact(name, surName, number, email, userId) {
     document.querySelector('.editModalContainer').classList.add('open');
     document.querySelector('#editName').value = name;
     document.querySelector('#editSurname').value = surName;
     document.querySelector('#editNumber').value = number;
     document.querySelector('#editEmail').value = email
-    document.querySelector('#update').addEventListener('click', () => {
+    document.querySelector('#update').addEventListener('click', async () => {
         //Operation
         const updatedName = document.querySelector('#editName').value;
         const updatedSurname = document.querySelector('#editSurname').value;
@@ -100,8 +100,8 @@ function editContact(name, surName, number, email) {
             number: updatedNumber,
             email: updatedEmail
         }
-        fetch(`http://localhost:3001/contacts/${userId}`, {
-            method: 'PATCH',
+        await fetch(`http://localhost:3001/users/${userId}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
